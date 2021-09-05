@@ -11,5 +11,8 @@ A new Flutter application.
 ![2](https://user-images.githubusercontent.com/76217277/132140933-cf407d47-3567-4ce4-9ec9-9297512b84b3.png)
 
 ## Login Screen
+![3](https://user-images.githubusercontent.com/76217277/132140962-c57c440f-80f5-4819-9ff6-52ca2cea8049.png)
+
+## Signup Screen
 
 
