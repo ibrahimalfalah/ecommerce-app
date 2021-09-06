@@ -66,21 +66,30 @@ class CheckMobileScreen extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  PinCodeTextField(
-                    keyboardType: TextInputType.number,
-                    appContext: context,
-                    length: 4,
-                    onChanged: (value) {},
-                    //backgroundColor: HexColor('7C7D7E'),
-                    hintCharacter: '*',
-                    showCursor: false,
-                    pinTheme: PinTheme(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: PinCodeTextField(
+                      enableActiveFill: true,
+                      keyboardType: TextInputType.number,
+                      appContext: context,
+                      length: 4,
+                      onChanged: (value) {},
+                      hintCharacter: '*',
+                      hintStyle: TextStyle(
+                        color: Colors.grey[700],
+                      ),
+                      showCursor: false,
+                      pinTheme: PinTheme(
                         selectedColor: Colors.grey[500],
                         borderRadius: BorderRadius.circular(10.0),
                         shape: PinCodeFieldShape.box,
                         activeColor: HexColor('FC6011'),
                         inactiveColor: HexColor('7C7D7E'),
-                        activeFillColor: HexColor('7C7D7E')),
+                        activeFillColor: HexColor('7C7D7E'),
+                        inactiveFillColor: HexColor('AEAFAF'),
+                        selectedFillColor: HexColor('FC6011'),
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
