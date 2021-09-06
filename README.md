@@ -19,3 +19,8 @@ A new Flutter application.
 
 ## Reset Password Screen
 ![5](https://user-images.githubusercontent.com/76217277/132244195-fee4d8a2-36b5-49df-8ef7-121a4158b373.png)
+
+## PIN Code Screen 
+![6](https://user-images.githubusercontent.com/76217277/132244318-1e03a7e6-d14f-48c2-933d-0f3e1a6f72ab.png)
+
+## New Password Screen
