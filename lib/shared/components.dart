@@ -92,3 +92,11 @@ void navigateWithoutBack(context, widget) => Navigator.pushAndRemoveUntil(
       ),
       (Route<dynamic> route) => false,
     );
+Widget lastDivider() => Container(
+      decoration: BoxDecoration(
+        color: HexColor('4A4B4D'),
+        borderRadius: BorderRadius.circular(25.0),
+      ),
+      height: 6.0,
+      width: 130.0,
+    );
