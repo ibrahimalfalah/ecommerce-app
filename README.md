@@ -24,3 +24,5 @@ A new Flutter application.
 ![6](https://user-images.githubusercontent.com/76217277/132244318-1e03a7e6-d14f-48c2-933d-0f3e1a6f72ab.png)
 
 ## New Password Screen
+![7](https://user-images.githubusercontent.com/76217277/132244469-22346777-97bc-41de-aa2c-c93df30e6d3d.png)
+
