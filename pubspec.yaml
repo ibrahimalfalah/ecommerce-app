@@ -32,6 +32,8 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_svg_provider: ^0.1.10
   get: ^4.3.8
+  pin_code_fields: ^7.3.0
+
 
 
 

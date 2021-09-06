@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,14 +132,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: HexColor('4A4B4D'),
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-            height: 6.0,
-            width: 130.0,
-          ),
+          lastDivider(),
         ],
       ),
     );

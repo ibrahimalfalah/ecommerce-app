@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/sign%20up_screen.dart';
 import 'package:e_commerce_app/shared/components.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +15,7 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -100,7 +102,9 @@ class LoginScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.015,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    navigateWithoutBack(context, ResetPasswordScreen());
+                  },
                   child: Text(
                     'Forgot your password?',
                     style: TextStyle(
@@ -245,14 +249,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: HexColor('4A4B4D'),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  height: 6.0,
-                  width: 130.0,
-                ),
+                lastDivider(),
               ],
             ),
           ),

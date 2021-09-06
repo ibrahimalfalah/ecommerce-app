@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/module/home_screen.dart';
+import 'package:e_commerce_app/module/home_login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -85,6 +85,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
 void goToNextView() {
   Future.delayed(Duration(seconds: 3), () {
-    Get.to(() => HomeScreen(), transition: Transition.fade);
+    Get.to(() => HomeLoginScreen(), transition: Transition.fade);
   });
 }

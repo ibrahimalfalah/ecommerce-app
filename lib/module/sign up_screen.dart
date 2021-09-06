@@ -20,6 +20,7 @@ class SignUpScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -214,14 +215,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.015,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: HexColor('4A4B4D'),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  height: 6.0,
-                  width: 130.0,
-                ),
+                lastDivider(),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.025,
                 ),
