@@ -17,4 +17,12 @@ A new Flutter application.
 
 ![4](https://user-images.githubusercontent.com/76217277/132140983-5707e864-7b2f-42ec-8d13-9a87338cd50e.png)
 
+## Reset Password Screen
+![5](https://user-images.githubusercontent.com/76217277/132244195-fee4d8a2-36b5-49df-8ef7-121a4158b373.png)
+
+## PIN Code Screen 
+![6](https://user-images.githubusercontent.com/76217277/132244318-1e03a7e6-d14f-48c2-933d-0f3e1a6f72ab.png)
+
+## New Password Screen
+![7](https://user-images.githubusercontent.com/76217277/132244469-22346777-97bc-41de-aa2c-c93df30e6d3d.png)
 
