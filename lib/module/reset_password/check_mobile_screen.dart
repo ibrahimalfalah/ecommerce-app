@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/module/reset_password/new_password_screen.dart';
 import 'package:e_commerce_app/shared/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -90,7 +91,9 @@ class CheckMobileScreen extends StatelessWidget {
                     child: sharedButton(
                       text: 'Next',
                       colors: HexColor('FC6011'),
-                      function: () {},
+                      function: () {
+                        navigateWithoutBack(context, NewPasswordScreen());
+                      },
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,

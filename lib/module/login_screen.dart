@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/module/reset_password_screen.dart';
+import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/sign%20up_screen.dart';
 import 'package:e_commerce_app/shared/components.dart';
 import 'package:flutter/cupertino.dart';

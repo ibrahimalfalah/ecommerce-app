@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/module/check_mobile_screen.dart';
+import 'package:e_commerce_app/module/reset_password/check_mobile_screen.dart';
 import 'package:e_commerce_app/shared/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -59,7 +59,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     style: TextStyle(),
                     hintStyle: TextStyle(
                       fontSize: 16.0,
-                      color: HexColor('CCCAC7'),
+                      color: HexColor('4A4B4D'),
                     ),
                     type: TextInputType.emailAddress),
                 SizedBox(
