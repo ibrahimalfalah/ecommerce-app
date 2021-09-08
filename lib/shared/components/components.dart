@@ -35,12 +35,14 @@ Widget textField({
   IconData? icon,
   IconData? suffix,
   required TextInputType type,
+  required String? Function(String?)? validator,
   bool isSecure = false,
+  Function()? show,
 }) =>
     TextFormField(
       obscureText: isSecure,
       cursorColor: Colors.grey[800],
-      validator: (value) {},
+      validator: validator,
       decoration: InputDecoration(
         filled: true,
         fillColor: fillColor,
@@ -64,10 +66,13 @@ Widget textField({
         labelText: label,
         hintText: hint,
         hintStyle: hintStyle,
-        suffixIcon: Icon(
-          suffix,
-          color: iconColor,
-        ),
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: show,
+                icon: Icon(suffix),
+                color: iconColor,
+              )
+            : null,
         prefixIcon: Icon(
           icon,
           color: iconColor,

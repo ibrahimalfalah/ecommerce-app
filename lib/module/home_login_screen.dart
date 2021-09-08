@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/module/login_screen.dart';
-import 'package:e_commerce_app/module/sign%20up_screen.dart';
-import 'package:e_commerce_app/shared/components.dart';
+import 'package:e_commerce_app/module/login/login_screen.dart';
+import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
