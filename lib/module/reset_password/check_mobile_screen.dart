@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/module/reset_password/new_password_screen.dart';
-import 'package:e_commerce_app/shared/components.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';

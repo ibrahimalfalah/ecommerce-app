@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/module/reset_password/check_mobile_screen.dart';
-import 'package:e_commerce_app/shared/components.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -51,6 +51,7 @@ class NewPasswordScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
                 textField(
+                    validator: (value){},
                     controller: emailController,
                     fillColor: HexColor('F2F2F2'),
                     hint: 'New Password',
@@ -67,6 +68,7 @@ class NewPasswordScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.06,
                 ),
                 textField(
+                    validator: (value){},
                     controller: emailController,
                     fillColor: HexColor('F2F2F2'),
                     hint: 'Confirm Password',

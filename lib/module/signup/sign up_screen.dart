@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/module/login_screen.dart';
-import 'package:e_commerce_app/module/sign%20up_screen.dart';
-import 'package:e_commerce_app/shared/components.dart';
+import 'package:e_commerce_app/module/login/login_screen.dart';
+import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -45,6 +45,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.text,
                   controller: nameController,
                   hint: 'Name',
@@ -65,6 +66,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.emailAddress,
                   controller: emailController,
                   hint: 'Email',
@@ -85,6 +87,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.phone,
                   controller: mobileController,
                   hint: 'Mobile No',
@@ -105,6 +108,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.text,
                   controller: addressController,
                   hint: 'Address',
@@ -125,6 +129,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.text,
                   isSecure: true,
                   suffix: Icons.remove_red_eye_outlined,
@@ -147,6 +152,7 @@ class SignUpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.011,
                 ),
                 textField(
+                  validator: (value){},
                   type: TextInputType.text,
                   isSecure: true,
                   suffix: Icons.remove_red_eye_outlined,
