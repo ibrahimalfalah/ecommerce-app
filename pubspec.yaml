@@ -35,6 +35,7 @@ dependencies:
   pin_code_fields: ^7.3.0
   flutter_bloc: ^7.2.0
   bloc: ^7.1.0
+  conditional_builder_null_safety: ^0.0.4
 
   #firebase
   firebase_core: ^1.6.0
