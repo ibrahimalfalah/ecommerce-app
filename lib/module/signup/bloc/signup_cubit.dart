@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -18,7 +19,9 @@ class SignUpCubit extends Cubit<SignUpStates> {
   var confirmPasswordController = TextEditingController();
 
   IconData suffix = Icons.visibility_outlined;
+  IconData suffix1 = Icons.visibility_outlined;
   bool isPassword = true;
+  bool isPassword1 = true;
 
   void changePasswordVisibility() {
     isPassword = !isPassword;
@@ -27,5 +30,41 @@ class SignUpCubit extends Cubit<SignUpStates> {
         isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
 
     emit(SignUpChangePasswordVisibilityState());
+  }
+
+  void changePasswordVisibility1() {
+    isPassword1 = !isPassword1;
+
+    suffix1 =
+        isPassword1 ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+
+    emit(SignUpChangePasswordVisibilityState1());
+  }
+
+  void userRegister({
+    required String name,
+    required String email,
+    required String mobile,
+    required String address,
+    required String password,
+    required String confirmPassword,
+  }) {
+    emit(SignUpLoadingState());
+    FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        )
+        .then(
+          (value) => {
+            print(value.user!.email),
+            print(value.user!.displayName.toString()),
+            print(value.user!.uid),
+            emit(SignUpSuccessState()),
+          },
+        )
+        .catchError((error) {
+      emit(SignUpErrorState(error.toString()));
+    });
   }
 }

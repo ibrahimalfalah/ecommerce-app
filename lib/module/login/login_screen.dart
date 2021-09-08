@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce_app/module/login/bloc/login_cubit.dart';
 import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
@@ -114,18 +115,30 @@ class LoginScreen extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: 50.0,
-                          child: sharedButton(
-                            text: 'Login',
-                            colors: HexColor('FC6011'),
-                            function: () {
-                              if (formKey.currentState!.validate()) {
-                                print('hi');
-                              }
-                            },
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
+                          child: ConditionalBuilder(
+                            condition: state is! LoginLoadingState,
+                            builder: (context) => sharedButton(
+                              text: 'Login',
+                              colors: HexColor('FC6011'),
+                              function: () {
+                                if (formKey.currentState!.validate()) {
+                                  LoginCubit.get(context).userLogin(
+                                    email: LoginCubit.get(context)
+                                        .emailController
+                                        .text,
+                                    password: LoginCubit.get(context)
+                                        .passwordController
+                                        .text,
+                                  );
+                                }
+                              },
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                              ),
                             ),
+                            fallback: (context) =>
+                                Center(child: CircularProgressIndicator()),
                           ),
                         ),
                         SizedBox(
