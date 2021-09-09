@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-Widget facebookButton() => Container(
+Widget facebookButton({
+  required Function()? onPressed,
+}) =>
+    Container(
       width: double.infinity,
       height: 50.0,
       child: OutlinedButton(
-        onPressed: () => {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           // Replace with a Row for horizontal icon + text
@@ -46,11 +49,11 @@ Widget facebookButton() => Container(
       ),
     );
 
-Widget googleButton() => Container(
+Widget googleButton({required Function()? onPressed}) => Container(
       width: double.infinity,
       height: 50.0,
       child: OutlinedButton(
-        onPressed: () => {},
+        onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

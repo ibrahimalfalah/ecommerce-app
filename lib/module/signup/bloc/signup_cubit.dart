@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_commerce_app/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,19 +54,46 @@ class SignUpCubit extends Cubit<SignUpStates> {
     emit(SignUpLoadingState());
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        )
+      email: email,
+      password: password,
+    )
         .then(
-          (value) => {
-            print(value.user!.email),
-            print(value.user!.displayName.toString()),
-            print(value.user!.uid),
-            emit(SignUpSuccessState()),
-          },
-        )
-        .catchError((error) {
+      (value) {
+        userCreate(
+          name: name,
+          email: email,
+          mobile: mobile,
+          address: address,
+          uId: value.user!.uid,
+        );
+      },
+    ).catchError((error) {
       emit(SignUpErrorState(error.toString()));
+    });
+  }
+
+  void userCreate({
+    required String name,
+    required String email,
+    required String mobile,
+    required String address,
+    required String uId,
+  }) {
+    UserModel model = UserModel(
+      name: name,
+      email: email,
+      mobile: mobile,
+      address: address,
+      uId: uId,
+    );
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uId)
+        .set(model.toMap())
+        .then((value) {
+      emit(SignUpCreateUserSuccessState());
+    }).catchError((error) {
+      emit(SignUpCreateUserErrorState(error.toString()));
     });
   }
 }
