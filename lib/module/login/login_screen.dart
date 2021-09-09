@@ -1,9 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce_app/module/login/bloc/login_cubit.dart';
+import 'package:e_commerce_app/module/on_boarding_screen.dart';
 import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
+import 'package:e_commerce_app/network/local/cache_helper.dart';
 import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:e_commerce_app/shared/widget/widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +19,20 @@ class LoginScreen extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
-        listener: (context, state) => {},
+        listener: (context, state) => {
+          if (state is LoginSuccessState)
+            {
+              CacheHelper.saveData(
+                key: 'uId',
+                value: state.uId,
+              ).then((value) {
+                navigateWithoutBack(
+                  context,
+                  OnBoardingScreen(),
+                );
+              }),
+            }
+        },
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(
@@ -130,6 +146,8 @@ class LoginScreen extends StatelessWidget {
                                         .passwordController
                                         .text,
                                   );
+                                  navigateWithoutBack(
+                                      context, OnBoardingScreen());
                                 }
                               },
                               style: TextStyle(
@@ -168,11 +186,20 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
-                        facebookButton(),
+                        facebookButton(
+                          onPressed: () {},
+                        ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
-                        googleButton(),
+                        googleButton(
+                          onPressed: () async {
+                            UserCredential credit =
+                                await LoginCubit.get(context)
+                                    .signInWithGoogle();
+                            navigateWithoutBack(context, OnBoardingScreen());
+                          },
+                        ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.025,
                         ),

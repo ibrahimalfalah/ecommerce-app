@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce_app/module/login/login_screen.dart';
+import 'package:e_commerce_app/module/on_boarding_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
 import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +18,11 @@ class SignUpScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => SignUpCubit(),
       child: BlocConsumer<SignUpCubit, SignUpStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is SignUpCreateUserSuccessState) {
+            navigateWithoutBack(context, OnBoardingScreen());
+          }
+        },
         builder: (context, state) {
           var cubit = SignUpCubit.get(context);
           return Scaffold(
