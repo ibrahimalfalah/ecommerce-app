@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/module/home_login_screen.dart';
+import 'package:e_commerce_app/module/home_login/home_login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';

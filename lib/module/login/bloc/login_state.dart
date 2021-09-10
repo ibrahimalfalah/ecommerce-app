@@ -7,6 +7,15 @@ class LoginInitialState extends LoginStates {}
 
 class LoginLoadingState extends LoginStates {}
 
+class LoginGoogleLoadingState extends LoginStates {}
+
+class LoginGoogleSuccessState extends LoginStates {}
+
+class LoginGoogleErrorState extends LoginStates {
+  final String error;
+  LoginGoogleErrorState(this.error);
+}
+
 class LoginSuccessState extends LoginStates {
   final String uId;
   LoginSuccessState(this.uId);

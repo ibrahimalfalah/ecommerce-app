@@ -1,6 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce_app/module/login/bloc/login_cubit.dart';
-import 'package:e_commerce_app/module/on_boarding_screen.dart';
+import 'package:e_commerce_app/module/on_boarding/on_boarding_screen.dart';
 import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
 import 'package:e_commerce_app/network/local/cache_helper.dart';
@@ -192,13 +192,18 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.015,
                         ),
-                        googleButton(
-                          onPressed: () async {
-                            UserCredential credit =
-                                await LoginCubit.get(context)
-                                    .signInWithGoogle();
-                            navigateWithoutBack(context, OnBoardingScreen());
-                          },
+                        ConditionalBuilder(
+                          condition: state is! LoginGoogleLoadingState,
+                          builder: (context) => googleButton(
+                            onPressed: () async {
+                              UserCredential credit =
+                                  await LoginCubit.get(context)
+                                      .signInWithGoogle();
+                              navigateWithoutBack(context, OnBoardingScreen());
+                            },
+                          ),
+                          fallback: (context) =>
+                              Center(child: CircularProgressIndicator()),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.025,
