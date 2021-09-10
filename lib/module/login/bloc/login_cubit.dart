@@ -49,6 +49,7 @@ class LoginCubit extends Cubit<LoginStates> {
   }
 
   Future<UserCredential> signInWithGoogle() async {
+    emit(LoginGoogleLoadingState());
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -61,6 +62,7 @@ class LoginCubit extends Cubit<LoginStates> {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
+    emit(LoginGoogleSuccessState());
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);

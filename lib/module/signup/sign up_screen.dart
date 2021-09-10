@@ -1,6 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce_app/module/login/login_screen.dart';
-import 'package:e_commerce_app/module/on_boarding_screen.dart';
+import 'package:e_commerce_app/module/on_boarding/on_boarding_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
 import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:flutter/cupertino.dart';
