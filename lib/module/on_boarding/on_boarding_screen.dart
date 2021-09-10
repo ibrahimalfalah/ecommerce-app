@@ -14,29 +14,6 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  var boardController = PageController();
-
-  List<BoardingModel> boarding = [
-    BoardingModel(
-        body: 'Find Food You Love',
-        body1: 'Discover the best foods from over 1,000',
-        body2: 'restaurants and fast delivery to your ',
-        body3: 'doorstep',
-        image: 'images/icons/onboarding1.png'),
-    BoardingModel(
-        body: 'Fast Delivery',
-        body1: 'fast food delivery to your home office ',
-        body2: 'wherever you are',
-        body3: '',
-        image: 'images/icons/onboarding2.png'),
-    BoardingModel(
-        body: 'Live Tracking',
-        body1: 'real time tracking of your food on the app ',
-        body2: 'once you placed the order',
-        body3: '',
-        image: 'images/icons/onboarding3.png'),
-  ];
-
   bool isLast = false;
 
   @override
@@ -87,18 +64,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             Row(
               children: [
-                SmoothPageIndicator(
-                  controller: boardController,
-                  count: boarding.length,
-                  effect: ExpandingDotsEffect(
-                    dotColor: Colors.grey,
-                    activeDotColor: Colors.deepOrange,
-                    dotHeight: 10.0,
-                    expansionFactor: 4,
-                    dotWidth: 10.0,
-                    spacing: 5.0,
-                  ),
-                ),
                 Spacer(),
                 FloatingActionButton(
                   onPressed: () {

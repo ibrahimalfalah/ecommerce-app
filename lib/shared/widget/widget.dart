@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/model/on_boarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 Widget facebookButton({
   required Function()? onPressed,
@@ -94,6 +95,28 @@ Widget googleButton({required Function()? onPressed}) => Container(
       ),
     );
 
+var boardController = PageController();
+List<BoardingModel> boarding = [
+  BoardingModel(
+      body: 'Find Food You Love',
+      body1: 'Discover the best foods from over 1,000',
+      body2: 'restaurants and fast delivery to your ',
+      body3: 'doorstep',
+      image: 'images/icons/onboarding1.png'),
+  BoardingModel(
+      body: 'Fast Delivery',
+      body1: 'fast food delivery to your home office ',
+      body2: 'wherever you are',
+      body3: '',
+      image: 'images/icons/onboarding2.png'),
+  BoardingModel(
+      body: 'Live Tracking',
+      body1: 'real time tracking of your food on the app ',
+      body2: 'once you placed the order',
+      body3: '',
+      image: 'images/icons/onboarding3.png'),
+];
+
 Widget buildBorderingItem(context, BoardingModel model) => Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -101,6 +124,21 @@ Widget buildBorderingItem(context, BoardingModel model) => Column(
           child: Image(
             fit: BoxFit.cover,
             image: AssetImage('${model.image}'),
+          ),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.04,
+        ),
+        SmoothPageIndicator(
+          controller: boardController,
+          count: boarding.length,
+          effect: ExpandingDotsEffect(
+            dotColor: Colors.grey,
+            activeDotColor: Colors.deepOrange,
+            dotHeight: 10.0,
+            expansionFactor: 4,
+            dotWidth: 10.0,
+            spacing: 5.0,
           ),
         ),
         SizedBox(
