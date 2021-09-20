@@ -1,9 +1,12 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_commerce_app/model/user_model.dart';
 import 'package:e_commerce_app/module/home/home.screen.dart';
 import 'package:e_commerce_app/module/menu/menu.screen.dart';
 import 'package:e_commerce_app/module/more/more.screen.dart';
 import 'package:e_commerce_app/module/offers/offers.screen.dart';
 import 'package:e_commerce_app/module/profile/profile.screen.dart';
+import 'package:e_commerce_app/shared/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -118,4 +121,19 @@ class AppCubit extends Cubit<AppStates> {
     ProfileScreen(),
     MoreScreen(),
   ];
+
+  UserModel? model;
+  void getUserData() {
+    emit(AppGetUserLoadingState());
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uId)
+        .snapshots()
+        .listen((event) {
+      model = null;
+      model = UserModel.fromJson(event.data());
+      print(model!.image);
+      emit(AppGetUserSuccessState());
+    });
+  }
 }

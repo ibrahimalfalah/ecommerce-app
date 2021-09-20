@@ -48,9 +48,7 @@ Widget textField({
         fillColor: fillColor,
         focusColor: focusColor,
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: borderSideColor,
-          ),
+          borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(
             25.0,
           ),
