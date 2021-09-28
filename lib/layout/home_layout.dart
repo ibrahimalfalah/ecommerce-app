@@ -14,8 +14,59 @@ class HomeLayout extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = AppCubit.get(context);
+        List<Widget> appBarName = [
+          Text(
+            'Menu',
+            style: TextStyle(
+              color: Color(0xff4a4b4d),
+              fontSize: 20.0,
+            ),
+          ),
+          Text(
+            'Latest Offers',
+            style: TextStyle(
+              color: Color(0xff4a4b4d),
+              fontSize: 20.0,
+            ),
+          ),
+          Text(
+            'Good Morning ${cubit.model!.name}!',
+            style: TextStyle(
+              color: Color(0xff4a4b4d),
+              fontSize: 20.0,
+            ),
+          ),
+          Text(
+            'Profile',
+            style: TextStyle(
+              color: Color(0xff4a4b4d),
+              fontSize: 20.0,
+            ),
+          ),
+          Text(
+            'More',
+            style: TextStyle(
+              color: Color(0xff4a4b4d),
+              fontSize: 20.0,
+            ),
+          ),
+        ];
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            actions: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.shopping_cart_rounded,
+                  ),
+                  color: Color(0xff4a4b4d),
+                ),
+              ),
+            ],
+            title: appBarName[cubit.currentIndex],
+          ),
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: CurvedNavigationBar(
             backgroundColor: Colors.deepOrange,

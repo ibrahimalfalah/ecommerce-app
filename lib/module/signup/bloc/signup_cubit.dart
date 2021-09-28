@@ -85,6 +85,8 @@ class SignUpCubit extends Cubit<SignUpStates> {
       mobile: mobile,
       address: address,
       uId: uId,
+      image:
+          'https://cdn.icon-icons.com/icons2/300/PNG/256/person-icon_31846.png',
     );
     FirebaseFirestore.instance
         .collection('users')

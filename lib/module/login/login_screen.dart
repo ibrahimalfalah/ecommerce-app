@@ -1,10 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:e_commerce_app/layout/home_layout.dart';
 import 'package:e_commerce_app/module/login/bloc/login_cubit.dart';
 import 'package:e_commerce_app/module/on_boarding/on_boarding_screen.dart';
 import 'package:e_commerce_app/module/reset_password/reset_password_screen.dart';
 import 'package:e_commerce_app/module/signup/sign%20up_screen.dart';
 import 'package:e_commerce_app/network/local/cache_helper.dart';
 import 'package:e_commerce_app/shared/components/components.dart';
+import 'package:e_commerce_app/shared/components/constants.dart';
 import 'package:e_commerce_app/shared/widget/widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,11 +26,11 @@ class LoginScreen extends StatelessWidget {
             {
               CacheHelper.saveData(
                 key: 'uId',
-                value: state.uId,
+                value: uId,
               ).then((value) {
                 navigateWithoutBack(
                   context,
-                  OnBoardingScreen(),
+                  HomeLayout(),
                 );
               }),
             }
@@ -138,7 +140,9 @@ class LoginScreen extends StatelessWidget {
                               colors: HexColor('FC6011'),
                               function: () {
                                 if (formKey.currentState!.validate()) {
+                                  uId = CacheHelper.getData(key: 'uId');
                                   LoginCubit.get(context).userLogin(
+                                    context: context,
                                     email: LoginCubit.get(context)
                                         .emailController
                                         .text,

@@ -1,4 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_commerce_app/layout/home_layout.dart';
+import 'package:e_commerce_app/network/local/cache_helper.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +21,7 @@ class LoginCubit extends Cubit<LoginStates> {
   void userLogin({
     required String email,
     required String password,
+    required BuildContext context,
   }) {
     emit(LoginLoadingState());
     FirebaseAuth.instance
@@ -27,7 +31,11 @@ class LoginCubit extends Cubit<LoginStates> {
     )
         .then(
       (value) {
-        emit(LoginSuccessState(value.user!.uid));
+        emit(
+          LoginSuccessState(value.user!.uid),
+        );
+
+        print(value.user!.uid);
       },
     ).catchError(
       (error) {
