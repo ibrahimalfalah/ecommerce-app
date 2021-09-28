@@ -6,27 +6,6 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart_rounded,
-              ),
-              color: Color(0xff4a4b4d),
-            ),
-          ),
-        ],
-        title: Text(
-          'Menu',
-          style: TextStyle(
-            color: Color(0xff4a4b4d),
-            fontSize: 26.0,
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -52,7 +31,7 @@ class MenuScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.025,
             ),
             Stack(
               children: [

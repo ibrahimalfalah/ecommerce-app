@@ -4,27 +4,6 @@ class MoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart_rounded,
-              ),
-              color: Color(0xff4a4b4d),
-            ),
-          ),
-        ],
-        title: Text(
-          'More',
-          style: TextStyle(
-            color: Color(0xff4a4b4d),
-            fontSize: 26.0,
-          ),
-        ),
-      ),
       body: Stack(children: [
         Positioned(
           top: 10,
@@ -212,16 +191,16 @@ class MoreScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 205,
+          top: 210,
           right: 80,
           child: CircleAvatar(
-            backgroundColor: Colors.red[800],
-            radius: 20,
+            backgroundColor: Colors.redAccent[700],
+            radius: 15,
             child: Text(
               '15',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: 16.0,
               ),
             ),
           ),

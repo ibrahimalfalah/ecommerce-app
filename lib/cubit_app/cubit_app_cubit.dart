@@ -6,6 +6,8 @@ import 'package:e_commerce_app/module/menu/menu.screen.dart';
 import 'package:e_commerce_app/module/more/more.screen.dart';
 import 'package:e_commerce_app/module/offers/offers.screen.dart';
 import 'package:e_commerce_app/module/profile/profile.screen.dart';
+import 'package:e_commerce_app/module/splash/splash_screen.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
 import 'package:e_commerce_app/shared/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +22,7 @@ class AppCubit extends Cubit<AppStates> {
 
   int currentIndex = 0;
   int itemIndex = 0;
+
   List<Widget> item = [
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -129,11 +132,16 @@ class AppCubit extends Cubit<AppStates> {
         .collection('users')
         .doc(uId)
         .snapshots()
-        .listen((event) {
+        .listen((value) {
       model = null;
-      model = UserModel.fromJson(event.data());
-      print(model!.image);
+      model = UserModel.fromJson(value.data());
       emit(AppGetUserSuccessState());
     });
+  }
+
+  void signOut(context) {
+    uId = '';
+    navigateTO(context, SplashScreen());
+    emit(SignOutState());
   }
 }

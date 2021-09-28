@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/cubit_app/cubit_app_cubit.dart';
 import 'package:e_commerce_app/module/login/login_screen.dart';
-import 'package:e_commerce_app/module/signup/bloc/signup_cubit.dart';
+import 'package:e_commerce_app/shared/components/components.dart';
+import 'package:e_commerce_app/shared/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,27 +9,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart_rounded,
-              ),
-              color: Color(0xff4a4b4d),
-            ),
-          ),
-        ],
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            color: Color(0xff4a4b4d),
-            fontSize: 26.0,
-          ),
-        ),
-      ),
       body: BlocConsumer<AppCubit, AppStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -40,13 +20,39 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 60,
-                    child: Image(
-                      image: NetworkImage(
-                        '${userModel!.image}',
+                  Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        child: Image(
+                          image: NetworkImage(
+                            '${userModel!.image}',
+                          ),
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        bottom: -5,
+                        left: -10,
+                        child: Image(
+                          width: 120,
+                          image: AssetImage(
+                            'images/icons/backimage.png',
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: -10,
+                        left: 28,
+                        child: IconButton(
+                          color: Colors.black.withOpacity(0.2),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.camera_alt_rounded,
+                            color: Color(0xff7e7d7e),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Hi there Ibrahim Alfalah!',
+                    'Hi there ${userModel.name}!',
                     style: TextStyle(
                       fontSize: 18.0,
                       color: Color(0xff4a4b4d),
@@ -75,12 +81,14 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      signOut(context);
+                    },
                     child: Text(
                       'Sign out',
                       style: TextStyle(
                         fontSize: 16.0,
-                        color: Color(0xffc2c3c3),
+                        color: Color(0xff7e7d7e),
                       ),
                     ),
                   ),
@@ -181,6 +189,24 @@ class ProfileScreen extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                           borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 50.0,
+                      child: sharedButton(
+                        text: 'Save',
+                        colors: Colors.deepOrange,
+                        function: () {},
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
                     ),

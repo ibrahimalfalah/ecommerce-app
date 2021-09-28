@@ -7,6 +7,8 @@ class AppInitialState extends AppStates {}
 
 class AppBottomNavState extends AppStates {}
 
+class SignOutState extends AppStates {}
+
 class AppGetUserLoadingState extends AppStates {}
 
 class AppGetUserSuccessState extends AppStates {}
